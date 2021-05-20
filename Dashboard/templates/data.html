@@ -1,0 +1,140 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<!-- Start Banner Hero -->
+<div id="work_banner_2" class="banner-wrapper bg-light w-100 py-5">
+    <div class="banner-vertical-center-work container text-light d-flex justify-content-center align-items-center py-5 p-0">
+        <div class="banner-content col-lg-8 col-12 m-lg-auto text-center">
+            <h1 class="banner-heading h2 display-3 pb-5 semi-bold-600 typo-space-line-center pt-5">Dashboard</h1>
+            <h3 class="h4 pb-2 regular-400">Property Insights in Washington DC, USA</h3>
+            <p class="banner-body pb-5 light-300">
+                These visualizations show the overview of property prices in Washington DC, USA 
+                based on the location, sale year from 1992 - 2018, grade, and use code. 
+            </p>
+        </div>
+    </div>
+</div>
+<!-- End Banner Hero -->
+
+<!-- Start Dashboard -->
+<section class="container py-5 pb-0 pt-0">
+    <!--
+    <div class="row justify-content-center my-5">
+        <h3 class="col-12 col-xl-12 h3 text-center text-primary pt-0"></h3>
+    </div>
+    -->
+    
+    <div class="row justify-content-center my-5">
+    
+        <div class="col-6 pt-3">
+            <h5 class="h5 mb-2 mb-sm-2 light-0 text-center">Insight</h5>
+            <p class="light-300 text-center">
+            Below is a Choropleth map of the Washington DC, USA depicting the median property price by Ward (Ward 1-8).
+            Ward 2 & 3 have the highest median price, while Ward 7 & 8 have the lowest median price.
+            </p>
+        </div>
+        
+        <div class="col-6 pt-3">
+            <h5 class="h5 mb-2 mb-sm-2 light-0 text-center">Insight</h5>
+            <p class="light-300 text-center">
+            The median property selling price in Washington DC, USA has an overall upward trend since 1992 until 2018.
+            However, in 2008 - 2009 the price went down due to the global financial crisis and the 
+            <a href="https://www.investopedia.com/articles/economics/09/subprime-market-2008.asp">housing crash</a>.
+            <p>
+        </div>
+        
+        <div class="chart col-6" id="graph-map" style="height: 100%;" ></div>
+        
+        <div class="chart col-6" id="graph-line-sale" style="height: 100%;" ></div>
+
+        <div class="col-6 pt-5">
+            <h5 class="h5 mb-2 mb-sm-2 light-0 text-center">Insight</h5>
+            <p class="light-300 text-center">
+            Properties located in Ward 2 & 3 have the highest median price of around USD800,000. 
+            Whereas properties located in Ward 7 & 8 have the lowest median price of around USD220,000. 
+            </p>
+        </div>
+        
+        <div class="col-6 pt-5">
+            <h5 class="h5 mb-2 mb-sm-2 light-0 text-center">Insight</h5>
+            <p class="light-300 text-center">
+            Ward 4, 5, and 6 are possibly the most densely populated area based on the number of properties located in those wards.
+            Whereas Ward 2 is possibly considered as an elite residential area considering the high median price and the low number of properties.
+            <p>
+        </div>
+                
+        <div class="chart col-6" id="graph-bar-ward" style="height: 100%;" ></div>
+
+        <div class="chart col-6" id="graph-bar-ward-count" style="height: 100%;" ></div>
+        
+        <div class="col-6 pt-5">
+            <h5 class="h5 mb-2 mb-sm-2 light-0 text-center">Insight</h5>
+            <p class="light-300 text-center">
+            The grade of a property shows a linear correlation with the median price. The better the grade of a property is, the higher the price.
+            <p>
+        </div>
+        
+        <div class="col-6 pt-5">
+            <h5 class="h5 mb-2 mb-sm-2 light-0 text-center">Insight</h5>
+            <p class="light-300 text-center">
+            Most of properties in Washington DC, USA are classified as 'Average' and 'Above Average' by appraisers. 
+            There are also very few properties that are classified as 'Fair Quality'.
+            </p>
+        </div>
+        
+        <div class="chart col-6" id="graph-bar-grade" style="height: 100%;" ></div>
+
+        <div class="chart col-6" id="graph-bar-grade-count" style="height: 100%;" ></div>
+    </div>
+    
+    <div class="row justify-content-center m-auto col-6 col-xl-6 pt-3">
+        <h5 class="h5 light-0 text-center pt-0">Insight</h5>
+        <p class="light-300 text-center">
+        Based on the property use code, Four Living Units have the highest median price followed by Town House and Single Family Residential.
+        </p>
+    </div> 
+    
+    <div class="row m-auto chart col-6 justify-content-center" id="graph-bar-usecode" style="height: 100%;" ></div>
+    
+    <div class="row justify-content-center m-auto col-6 col-xl-6">
+        <p class="light-300"><u><b>Remarks</b></u></p>
+        
+        <ul class="light-300">
+            <li> 11 : Single family residential home used as such </li>
+            <li> 12 : Single family residential home with non-economic 2nd unit </li>
+            <li> 13 : Single family residential home with slight commercial/ind </li>
+            <li> 15 : Townhouse - Planned Development </li>
+            <li> 19 : SFR - Manufactured Home (MH on permanent foundation) </li>
+            <li> 23 : Triplex; double or duplex with single family home </li>
+            <li> 24 : Four living units; e.g. fourplex or triplex w/SFR </li>
+        </ul>
+    </div> 
+</section>
+<!-- End Dashboard -->
+	
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+<script>
+	var graph_map = {{datamap | safe}}
+	Plotly.plot('graph-map', graph_map, {})
+	
+	var graph_bar_ward = {{databar_ward | safe}}
+	Plotly.plot('graph-bar-ward', graph_bar_ward, {})
+	
+	var graph_bar_ward_count = {{databar_ward_count | safe}}
+	Plotly.plot('graph-bar-ward-count', graph_bar_ward_count, {})
+	
+	var graph_bar_grade = {{databar_grade | safe}}
+	Plotly.plot('graph-bar-grade', graph_bar_grade, {})	
+
+	var graph_bar_grade_count = {{databar_grade_count | safe}}
+	Plotly.plot('graph-bar-grade-count', graph_bar_grade_count, {})	
+		
+    var graph_bar_usecode = {{databar_usecode | safe}}
+	Plotly.plot('graph-bar-usecode', graph_bar_usecode, {})	
+    
+	var graph_line_sale = {{dataline_sale | safe}}
+	Plotly.plot('graph-line-sale', graph_line_sale, {})
+</script>
+
+{% endblock content %}

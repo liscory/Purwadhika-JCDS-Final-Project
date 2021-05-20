@@ -1,0 +1,307 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!-- Start Banner -->
+<section class="bg-light">
+    <div class="container py-4">
+        <div class="row align-items-center justify-content-between">
+            <div class="contact-header col-lg-6">
+                <h1 class="h2 pb-3 text-primary">Property Value Estimator</h1>
+                <h3 class="h4 regular-400">Washington DC, USA</h3>
+                <p class="light-300">
+                    The required data to estimate the value of a property are the location, the condition and the specification of the property.
+                </p>
+            </div>
+            <div class="contact-img col-lg-5 align-items-end col-md-4">
+                <a href="https://storyset.com/business"><img src="./static/img/data-extraction-amico.svg" alt="Illustration by Freepik Storyset"></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner -->
+
+<!-- Start Content -->
+<section class="container py-5">
+    <h3 class="col-12 col-xl-12 h3 text-center text-primary pt-0">Fill the form to estimate property value!</h3>        
+    <!-- Start Form -->
+    <div class="row pb-4"></div>
+    
+    <div class="col-10 m-auto d-flex rounded overflow-hidden bg-white">
+        <form class="contact-form row" method="POST" action="/result">
+            <!-- Start Location Form -->
+            <h2 class="col-12 col-xl-8 h5 text-left regular-400">Location</h2>
+            <div class="row pb-4"></div>
+    
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingward" name="ward" placeholder="Ward" required>
+                        <option value="" disabled selected>Select Ward</option>
+                        {% for ward in spec['ward'] %}
+                            <option value="{{ ward }}">{{ ward }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingward light-300">Ward</label>
+                </div>
+            </div>
+            <!-- End Input Ward -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingquadrant" name="quadrant" placeholder="Quadrant" required>
+                        <option value="" disabled selected>Select Quadrant</option>
+                        {% for quadrant in spec['quadrant'] %}
+                            <option value="{{ quadrant }}">{{ quadrant }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingquadrant light-300">Quadrant</label>                                                     
+                </div>
+            </div>
+            <!-- End Input Quadrant -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" step="any" class="form-control form-control-md light-300" id="floatinglongitude" name="longitude" placeholder="Longitude" required>
+                    <label for="floatinglongitude light-300">Longitude</label>
+                </div>
+            </div><!-- End Input Longitude -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" step="any" class="form-control form-control-md light-300" id="floatinglatitude" name="latitude" placeholder="latitude" required>
+                    <label for="floatinglatitude light-300">Latitude</label>
+                </div>
+            </div>
+            <!-- End Input Latitude -->
+            <!-- End Location Form -->
+            
+            <!-- Start Condition Form -->
+            <h2 class="col-12 col-xl-8 h5 text-left regular-400 pt-4">Condition</h2>
+            <div class="row pb-4"></div>
+    
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="0" onchange="document.getElementById('floatingrenovationyears').max=this.value;" class="form-control form-control-md light-300" id="floatingbuildingage" name="building_age" placeholder="Building Age" required>
+                    <label for="floatingbuildingage light-300">Building Age (in years)</label>
+                </div>
+            </div>
+            <!-- End Input Building Age -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="0" class="form-control form-control-md light-300" id="floatingrenovationyears" name="renovation_years" placeholder="Renovation Years" required>
+                    <label for="floatingrenovationyears light-300">Renovation Years (in years)</label>
+                </div>
+            </div>
+            <!-- End Input Renovation Years-->
+            
+           <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingsaleyear" name="sale_year" placeholder="Last Sale Year" required>
+                        <option value="" disabled selected>Select Last Sale Year</option>
+                        {% for saleyear in spec['saleyear'] %}
+                            <option value="{{ saleyear }}">{{ saleyear }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingquadrant light-300">Last Sale Year</label>
+                </div>
+            </div>
+            <!-- End Input Sale Year -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingcondition" name="condition" placeholder="Condition" required>
+                        <option value="" disabled selected>Select Condition</option>
+        				<option value=0>Poor</option>
+    					<option value=1>Good</option>
+                    </select>
+                    <label for="floatingcondition light-300">Condition</label>
+                </div>
+            </div>
+            <!-- End Input Condition -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatinggrade" name="grade" placeholder="Grade" required>
+                        <option value="" disabled selected>Select Grade</option>
+        				<option value=0>Fair Quality</option>
+    					<option value=1>Average</option>
+    					<option value=2>Above Average</option>
+    					<option value=3>Good Quality</option>
+    					<option value=4>Very Good</option>
+    					<option value=5>Excellent</option>
+    					<option value=6>Superior</option>
+                    </select>
+                    <label for="floatinggrade light-300">Grade</label>
+                </div>
+            </div>
+            <!-- End Input Grade -->
+            
+             <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingqualified" name="qualified" placeholder="Qualified" required>
+                         <option value="" disabled selected>Qualified?</option>
+        				<option value="Q">Qualified</option>
+    					<option value="U">Unqualified</option>
+                    </select>
+                    <label for="floatingqualified light-300">Qualified?</label>
+                </div>
+            </div>
+            <!-- End Input Qualified -->
+            <!-- End Condition Form -->
+            
+            <!-- Start Specification Form -->
+            <h2 class="col-12 col-xl-8 h5 text-left regular-400  pt-4">Specification</h2>
+            <div class="row pb-4"></div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="1" class="form-control form-control-md light-300" id="floatinggba" name="gba" placeholder="Gross Building Area" required>
+                    <label for="floatinggba light-300">Gross Building Area (in sqft)</label>
+                </div>
+            </div>
+            <!-- End Input GBA-->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="1" class="form-control form-control-md light-300" id="floatinglandarea" name="landarea" placeholder="Land Area" required>
+                    <label for="floatinglandarea light-300">Land Area (in sqft)</label>
+                </div>
+            </div>
+            <!-- End Input Land Area-->
+            
+           <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingstyle" name="style" placeholder="Style" required>
+                        <option value="" disabled selected>Select Style</option>
+                        {% for style in spec['style'] %}
+                            <option value="{{ style }}">{{ style }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingstyle light-300">Style</label>
+                </div>
+            </div>
+            <!-- End Input Style -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingusecode" name="usecode" placeholder="Usecode" required>
+                        <option value="" disabled selected>Select Use Code</option>
+        				<option value=11>11 - Single family residential home used as such</option>
+    					<option value=12>12 - Single family residential home with non-economic 2nd unit</option>
+    					<option value=13>13 - Single family residential home with slight commercial/ind</option>
+    					<option value=15>15 - Townhouse - Planned Development</option>
+    					<option value=19>19 - SFR - Manufactured Home</option>
+    					<option value=23>23 - Triplex, double or duplex with single family home</option>
+    					<option value=24>24 - Four living units; e.g. fourplex or triplex with SFR</option>
+                    </select>
+                    <label for="floatingusecodelight-300">Use Code</label>
+                </div>
+            </div>
+            <!-- End Input Use Code -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="1" max="30" onchange="document.getElementById('floatingbedrooms').max=this.value;" class="form-control form-control-md light-300" id="floatingrooms" name="rooms" placeholder="Rooms" required>
+                    <label for="floatingrooms light-300">Rooms</label>
+                </div>
+            </div>
+            <!-- End Input Rooms-->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="0" max="15" class="form-control form-control-md light-300" id="floatingbedrooms" name="bedrooms" placeholder="Bedrooms" required>
+                    <label for="floatingbedrooms light-300">Bedrooms</label>
+                </div>
+            </div>
+            <!-- End Input Bedrooms-->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="1" max="12" class="form-control form-control-md light-300" id="floatingbathrooms" name="bathrooms" placeholder="Bathrooms" required>
+                    <label for="floatingbathrooms light-300">Bathrooms</label>
+                </div>
+            </div>
+            <!-- End Input Bathrooms-->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="0" max="12" class="form-control form-control-md light-300" id="floatinghalfbathrooms" name="half_bathrooms" placeholder="Half Bathrooms" required>
+                    <label for="floatinghalfbathrooms light-300">Half Bathrooms</label>
+                </div>
+            </div>
+            <!-- End Input Half Bathrooms-->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="0" max="6" class="form-control form-control-md light-300" id="floatingkitchens" name="kitchens" placeholder="Kitchens" required>
+                    <label for="floatingkitchens light-300">Kitchens</label>
+                </div>
+            </div>
+            <!-- End Input Kitchens-->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <input type="number" min="0" max="12" class="form-control form-control-md light-300" id="floatingfireplaces" name="fireplaces" placeholder="Fireplaces" required>
+                    <label for="floatingfireplaces light-300">Fireplaces</label>
+                </div>
+            </div>
+            <!-- End Input Fireplaces-->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingac" name="ac" placeholder="AC" required>
+                        <option value="" disabled selected>Has AC?</option>
+        				<option value="N">No</option>
+    					<option value="Y">Yes</option>
+                    </select>
+                    <label for="floatingac light-300">AC</label>
+                </div>
+            </div>
+            <!-- End Input AC -->
+            
+             <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingheatingsystem" name="heat" placeholder="Heating System" required>
+                        <option value="" disabled selected>Select Heating System</option>
+                        {% for heat in spec['heat'] %}
+                            <option value="{{ heat }}">{{ heat }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingheatingsystem light-300">Heating System</label>
+                </div>
+            </div>
+            <!-- End Input Heating System -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingroof" name="roof" placeholder="Roof" required>
+                        <option value="" disabled selected>Select Roof</option>
+        				<option value=0>Concrete / Comp Shingle / Built Up / Metal-Pre / Typical / Composition Ro</option>
+    					<option value=1>Shake / Metal-Sms / Shingle / Concrete Tile / Water Proof / Clay Tile / Slate / Neopren / Wood-FS / Metal-Cpr</option>
+                    </select>
+                    <label for="floatingroof light-300">Roof</label>
+                </div>
+            </div>
+            <!-- End Input Roof -->
+            
+            <div class="col-lg-6 mb-4">
+                <div class="form-floating">
+                    <select class="form-control form-control-md light-300" id="floatingstruct" name="struct" placeholder="Structure" required>
+                        <option value="" disabled selected>Select Structure</option>
+        				<option value=0>Semi-Detached / Multi / Town Inside / Town End</option>
+    					<option value=1>Row End / Single / Row Inside / Default</option>
+                    </select>
+                    <label for="floatingstruct light-300">Structure</label>
+                </div>
+            </div>
+            <!-- End Input Structure -->
+            
+            <div class="col-md-12 col-12 m-auto text-end">
+                <button type="submit" class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Estimate</button>
+            </div>
+        </form>
+    </div>
+    <!-- End Form -->
+</section>
+<!-- End Content-->
+{% endblock content %}

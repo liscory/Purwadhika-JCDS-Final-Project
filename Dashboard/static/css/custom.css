@@ -1,0 +1,41 @@
+/*
+Custom CSS for MPL Bank
+*/
+
+.logo{
+    width: 55px;
+    height: 40px;
+}
+
+#index_banner {
+    background-image: url('static/img/urban-building-3.png');
+    background-position: center center; background-size: cover;
+    height: 100%;
+    min-height: 60vh;
+    width: 100%;
+}
+
+.light-0 {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 0;
+}
+
+.light-150 {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 150;
+}
+
+.partner-wap2{
+    background-color: #7276ec;
+    transition: 1s;
+    cursor: pointer;
+}
+
+#work_banner_2 {
+    background-image: url('static/img/urban-building-night-5.png');
+    background-position: center center; background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
