@@ -5,7 +5,7 @@ import pickle
 import plotly
 import plotly.graph_objs as go
 import json
-import pandas as pd 
+import pandas as pd
 import numpy as np
 from model_plots import show_map, show_bar_ward, show_bar_ward_count, show_bar_grade, show_bar_grade_count, show_bar_usecode, show_bar_usecode_count, show_line_sale 
 from mae_count import count_mae
