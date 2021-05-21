@@ -24,7 +24,7 @@ Thus, the project owner wants to address these issues.
 
 ##### Notes :
 For details please refer to 
-<a href="https://github.com/ls-cy/Internal-MATPLOTLIB-Purwadhika-Final-Project/blob/main/Jupyter%20Notebook/Lead%20-%20Residential.ipynb">Lead - Residential.jpynb</a>, 
+<a href="https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Lead%20-%20Residential.ipynb">Lead - Residential.jpynb</a>, 
 <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Appendix%201.ipynb'>Appendix 1.jpynb</a> 
 and 
 <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Appendix%202.ipynb'>Appendix 2.jpynb</a>.
