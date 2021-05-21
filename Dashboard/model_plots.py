@@ -105,7 +105,7 @@ def show_bar_ward_count():
                  y='Count',
                  barmode='group',
                  color_discrete_sequence=["darkslateblue"],
-                 title='The Number of Properties by Ward'
+                 title='Number of Properties by Ward'
                  )
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
@@ -148,14 +148,12 @@ def show_bar_grade_count():
     df_grade = df[['GRADE', 'PRICE']].groupby(['GRADE']).count().reset_index().rename(columns={'GRADE':'Grade',
                                                                                               'PRICE':'Count'})
     
-
-    
     fig = px.bar(df_grade,
                  x='Grade',
                  y='Count',
                  barmode='group',
                  color_discrete_sequence=["darkslateblue"],
-                 title='The Number of Properties by Grade',
+                 title='Number of Properties by Grade',
                  category_orders={'Grade':['Fair Quality',
                                            'Average',
                                            'Above Average',
@@ -184,6 +182,27 @@ def show_bar_usecode():
                  barmode='group',
                  color_discrete_sequence=["darkslateblue"],
                  title='Median Property Price by Use Code'
+                 )
+    fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+                       'paper_bgcolor': 'rgba(0, 0, 0, 0)',
+                       'title_font_family':'Open Sans'
+                       })
+    
+    fig_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return fig_json
+
+def show_bar_usecode_count():
+    
+    df_usecode = df[['USECODE', 'PRICE']].groupby(['USECODE']).count().reset_index().rename(columns={'USECODE':'Use Code',
+                                                                                                    'PRICE':'Count'})
+    df_usecode['Use Code'] = df_usecode['Use Code'].astype('str')
+    
+    fig = px.bar(df_usecode,
+                 x='Use Code',
+                 y='Count',
+                 barmode='group',
+                 color_discrete_sequence=["darkslateblue"],
+                 title='Number of Properties by Use Code'
                  )
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',

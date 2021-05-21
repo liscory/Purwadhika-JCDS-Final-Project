@@ -7,7 +7,7 @@ import plotly.graph_objs as go
 import json
 import pandas as pd 
 import numpy as np
-from model_plots import show_map, show_bar_ward, show_bar_ward_count, show_bar_grade, show_bar_grade_count, show_bar_usecode, show_line_sale 
+from model_plots import show_map, show_bar_ward, show_bar_ward_count, show_bar_grade, show_bar_grade_count, show_bar_usecode, show_bar_usecode_count, show_line_sale 
 from mae_count import count_mae
 
 
@@ -120,21 +120,23 @@ def result():
 @app.route('/data', methods=['GET', 'POST'])
 def data():
     datamap = show_map()
+    dataline_sale = show_line_sale()
     databar_ward = show_bar_ward()
     databar_ward_count = show_bar_ward_count()
     databar_grade = show_bar_grade() 
     databar_grade_count = show_bar_grade_count()
     databar_usecode = show_bar_usecode()
-    dataline_sale = show_line_sale()
-
+    databar_usecode_count = show_bar_usecode_count()
+    
     return render_template('data.html', 
                            datamap = datamap,
+                           dataline_sale=dataline_sale,
                            databar_ward=databar_ward, 
                            databar_ward_count=databar_ward_count,
                            databar_grade = databar_grade, 
                            databar_grade_count = databar_grade_count,
                            databar_usecode = databar_usecode,
-                           dataline_sale=dataline_sale)
+                           databar_usecode_count = databar_usecode_count)
 
 
 @app.route('/about')
