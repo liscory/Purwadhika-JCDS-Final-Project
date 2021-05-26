@@ -3,7 +3,9 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_absolute_error
 
-model_filename = '../Model/Final_Model_RF.sav'
+# model_filename = '../Model/Final_Model_RF.sav'
+# model = pickle.load(open(model_filename, 'rb'))
+model_filename = '../Model/Final_Model_Catboost.sav'
 model = pickle.load(open(model_filename, 'rb'))
 
 def count_mae():

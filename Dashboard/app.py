@@ -5,7 +5,7 @@ import pickle
 import plotly
 import plotly.graph_objs as go
 import json
-import pandas as pd
+import pandas as pd 
 import numpy as np
 from model_plots import show_map, show_bar_ward, show_bar_ward_count, show_bar_grade, show_bar_grade_count, show_bar_usecode, show_bar_usecode_count, show_line_sale 
 from mae_count import count_mae
@@ -42,80 +42,48 @@ def predict():
     return render_template('predict.html', spec=house_spec)
 
 
-@app.route('/result', methods=['GET', 'POST'])
+@app.route('/result', methods=['POST'])
 def result():
     try:
         print(request.method)
         if request.method == 'POST':
-            input = request.form
+            form_input = request.form
             
             df_predict = pd.DataFrame({
-                'BATHRM' : [int(input['bathrooms'])],
-                'HF_BATHRM' : [int(input['half_bathrooms'])],
-                'ROOMS' : [int(input['rooms'])],
-                'BEDRM' : [int(input['bedrooms'])],
-                'ayb_age' : [int(input['building_age'])],
-                'eyb_age' : [int(input['renovation_years'])],
-                'GBA' : [float(input['gba'])],
-                'KITCHENS' : [int(input['kitchens'])],
-                'FIREPLACES' : [int(input['fireplaces'])],
-                'LANDAREA' : [float(input['landarea'])],
-                'LATITUDE' : [float(input['latitude'])],
-                'LONGITUDE' : [float(input['longitude'])],
-                'AC' : [input['ac']],
-                'QUALIFIED' : [input['qualified']],
-                'WARD' : [input['ward']],
-                'QUADRANT' : [input['quadrant']],
-                'HEAT' : [input['heat']],
-                'STYLE' : [input['style']],
-                'USECODE' : [input['usecode']],
-                'STRUCT' : [int(input['struct'])],
-                'GRADE' : [int(input['grade'])],
-                'CNDTN' : [int(input['condition'])],
-                'ROOF' : [int(input['roof'])],
-                'SALEYEAR' : [int(input['sale_year'])]
+                'BATHRM' : [int(form_input['bathrooms'])],
+                'HF_BATHRM' : [int(form_input['half_bathrooms'])],
+                'ROOMS' : [int(form_input['rooms'])],
+                'BEDRM' : [int(form_input['bedrooms'])],
+                'ayb_age' : [int(form_input['building_age'])],
+                'eyb_age' : [int(form_input['renovation_years'])],
+                'GBA' : [float(form_input['gba'])],
+                'KITCHENS' : [int(form_input['kitchens'])],
+                'FIREPLACES' : [int(form_input['fireplaces'])],
+                'LANDAREA' : [float(form_input['landarea'])],
+                'LATITUDE' : [float(form_input['latitude'])],
+                'LONGITUDE' : [float(form_input['longitude'])],
+                'AC' : [form_input['ac']],
+                'QUALIFIED' : [form_input['qualified']],
+                'WARD' : [form_input['ward']],
+                'QUADRANT' : [form_input['quadrant']],
+                'HEAT' : [form_input['heat']],
+                'STYLE' : [form_input['style']],
+                'USECODE' : [form_input['usecode']],
+                'STRUCT' : [int(form_input['struct'])],
+                'GRADE' : [int(form_input['grade'])],
+                'CNDTN' : [int(form_input['condition'])],
+                'ROOF' : [int(form_input['roof'])],
+                'SALEYEAR' : [int(form_input['sale_year'])]
             })
-            
+
+            prediction = int(model.predict(df_predict)[0])
+
+            mae = count_mae()
+        
+            return render_template('result.html', spec=form_input, pred_result=prediction, mae=mae)
+  
     except:
         return predict_error()
-    
-    else:
-        if request.method == 'POST':
-            input = request.form
-    
-            df_predict = pd.DataFrame({
-                'BATHRM' : [int(input['bathrooms'])],
-                'HF_BATHRM' : [int(input['half_bathrooms'])],
-                'ROOMS' : [int(input['rooms'])],
-                'BEDRM' : [int(input['bedrooms'])],
-                'ayb_age' : [int(input['building_age'])],
-                'eyb_age' : [int(input['renovation_years'])],
-                'GBA' : [float(input['gba'])],
-                'KITCHENS' : [int(input['kitchens'])],
-                'FIREPLACES' : [int(input['fireplaces'])],
-                'LANDAREA' : [float(input['landarea'])],
-                'LATITUDE' : [float(input['latitude'])],
-                'LONGITUDE' : [float(input['longitude'])],
-                'AC' : [input['ac']],
-                'QUALIFIED' : [input['qualified']],
-                'WARD' : [input['ward']],
-                'QUADRANT' : [input['quadrant']],
-                'HEAT' : [input['heat']],
-                'STYLE' : [input['style']],
-                'USECODE' : [input['usecode']],
-                'STRUCT' : [int(input['struct'])],
-                'GRADE' : [int(input['grade'])],
-                'CNDTN' : [int(input['condition'])],
-                'ROOF' : [int(input['roof'])],
-                'SALEYEAR' : [int(input['sale_year'])]
-            })
-            
-        prediction = int(model.predict(df_predict)[0])
-
-        mae = count_mae()
-    
-        return render_template('result.html', spec=input, pred_result=prediction, mae=mae)
-
 
 @app.route('/data', methods=['GET', 'POST'])
 def data():
@@ -150,8 +118,10 @@ def predict_error():
 
 
 if __name__ == '__main__':
-    model_filename = '../Model/Final_Model_RF.sav'
-    model = pickle.load(open(model_filename, 'rb'))
+    # with open('../Model/Final_Model_RF.sav' ,'rb') as f:
+    #     model = pickle.load(f)
+    with open('../Model/Final_Model_Catboost.sav' ,'rb') as f:
+        model = pickle.load(f)
 
     app.run(debug=True)
 

@@ -35,8 +35,7 @@
         <div class="pricing-horizontal-body offset-lg-0 col-md-9">
             <ul class="pricing-table-list text-start text-dark px-4 list-unstyled light-0 pt-4 pb-3">
                 <li><i class="bx bxs-circle me-2"></i>{{ 'Estimated Price : $ {:,.2f}'.format(pred_result) }}</li>
-                <li><i class="bx bxs-circle me-2"></i>{{ 'Estimated Error : ± $ {:,.2f}'.format(mae) }}</li>
-                <li><i class="bx bxs-circle me-2"></i>{{ 'Price Range : $ {:,.2f} - $ {:,.2f}'.format(pred_result - mae, pred_result + mae)}}</li>
+                <li><i class="bx bxs-circle me-2"></i>{{ 'Estimated Error (Mean Absolute Error) : ± $ {:,.2f}'.format(mae) }}</li>
             </ul>
         </div>
     </div>
