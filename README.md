@@ -116,6 +116,7 @@ For the modeling process we tried these base and ensemble models to obtain a mod
   - Decision Tree Regressor
   - Random Forest Regressor
   - Voting Regressor
+  - CatBoost Regressor
   
 Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Modeling.ipynb'>Modeling.jpynb</a>
 
