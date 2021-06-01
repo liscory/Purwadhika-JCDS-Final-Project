@@ -7,12 +7,33 @@ import plotly.graph_objs as go
 import json
 import pandas as pd 
 import numpy as np
-from model_plots import show_map, show_bar_ward, show_bar_ward_count, show_bar_grade, show_bar_grade_count, show_bar_usecode, show_bar_usecode_count, show_line_sale 
-from mae_count import count_mae
+from model_plots import show_map, show_bar_ward, show_bar_ward_count, show_bar_grade, show_bar_grade_count, show_bar_usecode, show_bar_usecode_count, show_line_sale
+from sklearn.base import BaseEstimator
+from sklearn.metrics import mean_absolute_error
 
+class NoTransformer(BaseEstimator):
+    """Passes through data without any change and is compatible with ColumnTransformer class"""
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        assert isinstance(X, pd.DataFrame)
+        return X
+
+with open('../Model/Final_Model_Catboost_v2.sav' ,'rb') as f:
+    model_dict = pickle.load(f)
+
+def count_mae():
+    df_train = pd.read_csv('../Data/DF_train.csv')
+    X_train = df_train.drop('PRICE', axis=1)
+    y_train = df_train['PRICE']
+    y_pred = model_dict['model'].predict(model_dict['transformer'].transform(X_train))
+    mae = mean_absolute_error(y_train, y_pred)
+    return mae
+
+MAE = count_mae()
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def home():
@@ -76,11 +97,9 @@ def result():
                 'SALEYEAR' : [int(form_input['sale_year'])]
             })
 
-            prediction = int(model.predict(df_predict)[0])
-
-            mae = count_mae()
+            prediction = model_dict['model'].predict(model_dict['transformer'].transform(df_predict))[0]
         
-            return render_template('result.html', spec=form_input, pred_result=prediction, mae=mae)
+            return render_template('result.html', spec=form_input, pred_result=prediction, mae=MAE)
   
     except:
         return predict_error()
@@ -118,12 +137,4 @@ def predict_error():
 
 
 if __name__ == '__main__':
-    # with open('../Model/Final_Model_RF.sav' ,'rb') as f:
-    #     model = pickle.load(f)
-    with open('../Model/Final_Model_Catboost.sav' ,'rb') as f:
-        model = pickle.load(f)
-
     app.run(debug=True)
-
-    
-
