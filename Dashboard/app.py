@@ -11,6 +11,7 @@ from model_plots import show_map, show_bar_ward, show_bar_ward_count, show_bar_g
 from sklearn.base import BaseEstimator
 from sklearn.metrics import mean_absolute_error
 
+
 class NoTransformer(BaseEstimator):
     """Passes through data without any change and is compatible with ColumnTransformer class"""
     def fit(self, X, y=None):
@@ -19,9 +20,11 @@ class NoTransformer(BaseEstimator):
     def transform(self, X):
         assert isinstance(X, pd.DataFrame)
         return X
+    
 
 with open('../Model/Final_Model_Catboost_v2.sav' ,'rb') as f:
     model_dict = pickle.load(f)
+    
 
 def count_mae():
     df_train = pd.read_csv('../Data/DF_train.csv')
@@ -32,6 +35,7 @@ def count_mae():
     return mae
 
 MAE = count_mae()
+
 
 app = Flask(__name__)
 
@@ -71,16 +75,17 @@ def result():
             form_input = request.form
             
             df_predict = pd.DataFrame({
-                'BATHRM' : [int(form_input['bathrooms'])],
-                'HF_BATHRM' : [int(form_input['half_bathrooms'])],
-                'ROOMS' : [int(form_input['rooms'])],
-                'BEDRM' : [int(form_input['bedrooms'])],
-                'ayb_age' : [int(form_input['building_age'])],
-                'eyb_age' : [int(form_input['renovation_years'])],
-                'GBA' : [float(form_input['gba'])],
-                'KITCHENS' : [int(form_input['kitchens'])],
-                'FIREPLACES' : [int(form_input['fireplaces'])],
-                'LANDAREA' : [float(form_input['landarea'])],
+                #Int value but changed into float to avoid error if the user inputs the number in float format (e.g., 1.0)
+                'BATHRM' : [float(form_input['bathrooms'])], # Int
+                'HF_BATHRM' : [float(form_input['half_bathrooms'])], # Int
+                'ROOMS' : [float(form_input['rooms'])], # Int
+                'BEDRM' : [float(form_input['bedrooms'])], # Int
+                'ayb_age' : [float(form_input['building_age'])], # Int
+                'eyb_age' : [float(form_input['renovation_years'])], # Int
+                'GBA' : [float(form_input['gba'])], # Int
+                'KITCHENS' : [float(form_input['kitchens'])], # Int
+                'FIREPLACES' : [float(form_input['fireplaces'])], # Int
+                'LANDAREA' : [float(form_input['landarea'])], # Int
                 'LATITUDE' : [float(form_input['latitude'])],
                 'LONGITUDE' : [float(form_input['longitude'])],
                 'AC' : [form_input['ac']],
@@ -103,6 +108,7 @@ def result():
   
     except:
         return predict_error()
+
 
 @app.route('/data', methods=['GET', 'POST'])
 def data():
