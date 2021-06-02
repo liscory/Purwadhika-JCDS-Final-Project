@@ -174,6 +174,5 @@ PREDICTION RESULT
 INSIGHTS PAGE 
 ---
 ![](https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Presentation/Webpage%20Screenshots/06-insights.png)
-
-  
+---
 
