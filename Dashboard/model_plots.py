@@ -8,7 +8,9 @@ import json
 import folium
 from folium.features import DivIcon
 
+
 df = pd.read_csv('../Data/DF_Residential_Analysis.csv')
+
 
 def show_map():
     df_ward = df[['WARD', 'PRICE']].groupby(['WARD']).median().reset_index().rename(columns={'WARD':'Ward',
@@ -21,11 +23,12 @@ def show_map():
                                         colorscale='BuPu',
                                         locations=df_ward['Ward'].astype(str),
                                         featureidkey = "properties.NAME",
-                                        z = df_ward['Median Price'].astype(float)))
+                                        z = df_ward['Median Price'].astype(float))) #To color-code data
     
     fig.update_geos(fitbounds="locations", visible=False)
+    
     fig.update_layout(title_text = 'Washington DC Ward Map',
-                      geo_scope='usa', # limit map scope to USA
+                      geo_scope='usa', # Limit map scope to USA
                       font_family="Open Sans",
                       title_font_family="Open Sans"
                       )
@@ -47,6 +50,7 @@ def show_bar_ward():
                  color_discrete_sequence=["darkslateblue"],
                  title='Median Property Price by Ward'
                  )
+    
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
                        'title_font_family':'Open Sans'
@@ -59,6 +63,7 @@ def show_bar_ward():
                                     y=df_ward['PRICE'], 
                                     marker=dict(color='darkslateblue')
                                     ))
+    
     fig.update_layout(title ='Median Property Price by Ward', 
                       xaxis = {'showgrid': False,
                                 'title':'Ward'},
@@ -73,15 +78,15 @@ def show_bar_ward():
     return fig_json
 
 
-
 def show_line_sale():
     df_sale_year = df[['SALEYEAR', 'PRICE']].groupby(['SALEYEAR']).median().reset_index()
     
     fig = go.Figure(data=go.Scatter(x=df_sale_year['SALEYEAR'], 
                                     y=df_sale_year['PRICE'], 
-                                    mode='lines', 
+                                    mode='lines', # To connect the points
                                     marker=dict(color='darkslateblue')
                                     ))
+    
     fig.update_layout(title ='Median Property Price Each Year', 
                       xaxis = {'showgrid': False,
                                 'title':'Sale Year'},
@@ -107,6 +112,7 @@ def show_bar_ward_count():
                  color_discrete_sequence=["darkslateblue"],
                  title='Number of Properties by Ward'
                  )
+    
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
                        'title_font_family':'Open Sans'
@@ -114,6 +120,7 @@ def show_bar_ward_count():
     
     fig_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return fig_json
+
 
 def show_bar_grade():
     # Version 1 
@@ -135,6 +142,7 @@ def show_bar_grade():
                                            'Excellent',
                                            'Superior']}
                  )
+    
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
                        'title_font_family':'Open Sans'
@@ -142,6 +150,7 @@ def show_bar_grade():
     
     fig_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return fig_json
+
 
 def show_bar_grade_count():
     
@@ -162,6 +171,7 @@ def show_bar_grade_count():
                                            'Excellent',
                                            'Superior']}
                  )
+    
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
                        'title_font_family':'Open Sans'
@@ -169,6 +179,7 @@ def show_bar_grade_count():
     
     fig_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return fig_json
+
 
 def show_bar_usecode():
     
@@ -183,6 +194,7 @@ def show_bar_usecode():
                  color_discrete_sequence=["darkslateblue"],
                  title='Median Property Price by Use Code'
                  )
+    
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
                        'title_font_family':'Open Sans'
@@ -190,6 +202,7 @@ def show_bar_usecode():
     
     fig_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return fig_json
+
 
 def show_bar_usecode_count():
     
@@ -204,6 +217,7 @@ def show_bar_usecode_count():
                  color_discrete_sequence=["darkslateblue"],
                  title='Number of Properties by Use Code'
                  )
+    
     fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)',
                        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
                        'title_font_family':'Open Sans'
