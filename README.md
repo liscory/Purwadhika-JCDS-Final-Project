@@ -94,8 +94,6 @@ the right decision in providing loan.
 
 Started with importing the dataset which is DC_properties.csv. Then, we continued to handle missing datapoints, give restriction to the data that will be used for EDA and further processes, remove outliers, and choose relevant features to be used in the modelling phase. This process results in a new clean dataset that would be used for this project.
 
-Clean dataset : <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Data/DF_Residential_v10.csv'>DF_Residential_v10.csv</a> 
-
 Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/EDA%20-%20Data%20Preparation.ipynb'>EDA - Data Preparation.jpynb</a>
 
 ---
