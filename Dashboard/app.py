@@ -27,7 +27,7 @@ with open('../Model/Final_Model_Catboost_v2.sav' ,'rb') as f:
     
 
 def count_mae():
-    df_train = pd.read_csv('../Data/DF_train.csv')
+    df_train = pd.read_csv('../Data/DF_Train_Clean.csv')
     X_train = df_train.drop('PRICE', axis=1)
     y_train = df_train['PRICE']
     y_pred = model_dict['model'].predict(model_dict['transformer'].transform(X_train))
@@ -46,7 +46,7 @@ def home():
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict(): 
-    df_residential = pd.read_csv('../Data/DF_Train.csv')
+    df_residential = pd.read_csv('../Data/DF_Train_Clean.csv')
 
     ward = sorted(df_residential['WARD'].unique().tolist())
     quadrant = df_residential['QUADRANT'].unique().tolist()
