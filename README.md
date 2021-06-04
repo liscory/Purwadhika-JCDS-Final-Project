@@ -33,8 +33,6 @@ and
 
 # I. Problem Identification
 
----
-
 ## 1. Problem Definition
 
 Based on the elicitation process with the project owner, we found that they want to improve the accuracy of their underwriting process, specifically in the process of evaluating the appraisal. 
