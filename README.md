@@ -124,7 +124,7 @@ Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project
   
 # V. Evaluation
 
-We use CatBoost Regressor as our final model as it gives the best r-squared (R²) results in both training and validation set and the lowest MAE compared with other models.
+We used CatBoost Regressor as our final model as it gives the best r-squared (R²) results in both training and validation set and the lowest MAE compared with other models.
 <p float="center ">
 <img src="https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Model/Model.png" width="500" />
   
@@ -140,7 +140,7 @@ Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project
 
 ## 2. Maintenance Plan
 
-We implement batch (offline) learning in our system since we can't obtain new data autonomously. Thus, if we want the system to know about new data, we have to re-train it with both old and new data and then replace the old system with the new one.
+We implemented batch (offline) learning in our system since we can't obtain new data autonomously. Thus, if we want the system to know about new data, we have to re-train it with both old and new data and then replace the old system with the new one.
 
 
 ## 3. Final Presentation
