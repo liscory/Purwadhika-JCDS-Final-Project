@@ -75,8 +75,7 @@ As the output of this project would be a range of price, there are two possible 
 - The second scenario is when the actual value of the property is lower than prediction value (the model gives under appraised[10] value), this could cause MPL Bank to suffer loss when the borrower is unable to pay back the loan.
 
 ### Performance Measure
-The performance measures to evaluate the ML model are Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), 
-the Coefficient of Determination (R²). 
+The performance measures to evaluate the ML model are Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and the Coefficient of Determination (R²). 
 
 ## 5. Action
 The business user can utilize the prediction result by comparing it with the appraisal value given by the AMC to determine a reasonable property value.
