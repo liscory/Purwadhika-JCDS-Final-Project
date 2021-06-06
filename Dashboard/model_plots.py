@@ -23,7 +23,7 @@ def show_map():
                                         colorscale='BuPu',
                                         locations=df_ward['Ward'].astype(str),
                                         featureidkey = "properties.NAME",
-                                        z = df_ward['Median Price'].astype(float))) #To color-code data
+                                        z = df_ward['Median Price'].astype(float))) # Sets the color values
     
     fig.update_geos(fitbounds="locations", visible=False)
     
