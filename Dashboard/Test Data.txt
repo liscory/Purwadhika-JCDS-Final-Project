@@ -29,6 +29,36 @@ Error = $23,523
 Error % = 7.04%
 
 
+2.
+Ward : 5
+Quadrant : NE
+Longitude : -76.9907
+Latitude : 38.922
+Building Age : 101
+Renovation Years : 64
+Last Sale Year : 2007
+Condition : Good
+Grade : Average
+Qualified : Qualified
+GBA : 1234
+Land Area : 5500
+Style : 2 Story
+Use Code : 12
+Rooms : 6
+Bedrooms : 3
+Bathrooms : 1
+Half Bathrooms : 1
+Kitchens : 1
+Fireplaces : 0
+AC : N
+Heating System : Hot Water Rad
+Roof : Concrete/...
+Structure : Single/...
+
+Y_test = $380,000
+Y_pred = $393,541
+Error = $13,541
+Error % = 3.56%
 
 
 
