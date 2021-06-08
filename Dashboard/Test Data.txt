@@ -1,0 +1,35 @@
+Ward : 7
+Quadrant : NE
+Longitude : -76.94963077
+Latitude : 38.89005918
+Building Age : 78
+Renovation Years : 54
+Last Sale Year : 2018
+Condition : Poor
+Grade : Average
+Qualified : Qualified
+GBA : 1024
+Land Area : 2252
+Style : 2 Story
+Use Code : 11
+Rooms : 6
+Bedrooms : 3
+Bathrooms : 1
+Half Bathrooms : 1
+Kitchens : 1
+Fireplaces : 0
+AC : Yes
+Heating System : Warm Cool
+Roof : Shake/...
+Structure : Single/...
+
+Y_test = $334,000
+Y_pred = $310,477
+Error = $23,523
+Error % = 7.04%
+
+
+
+
+
+ 
