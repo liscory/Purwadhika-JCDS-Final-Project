@@ -70,9 +70,9 @@ and the approach to generalization is a model-based learning. We will feed the d
 parameters to fit the model, and then hopefully it will be able to make good predictions on future/unknown instances.
 
 ### Risk
-As the output of this project would be a range of price, there are two possible risk that may be caused by wrong prediction from the ML model:
-- The first scenario is when the actual value of the property is higher than the prediction value, this could cause MPL Bank to reject giving loan and thus resulting in loss of potential borrower.
-- The second scenario is when the actual value of the property is lower than prediction value (the model gives under appraised[10] value), this could cause MPL Bank to suffer loss when the borrower is unable to pay back the loan.
+There are two possible risk that may be caused by wrong prediction from the ML model:
+- The first scenario is when the actual value of the property is higher than the prediction value (the model gives under appraised[10] value), this could cause MPL Bank to reject giving loan and thus resulting in loss of potential borrower.
+- The second scenario is when the actual value of the property is lower than prediction value, this could cause MPL Bank to suffer loss when the borrower is unable to pay back the loan.
 
 ### Performance Measure
 The performance measures to evaluate the ML model are Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and the Coefficient of Determination (R²). 
