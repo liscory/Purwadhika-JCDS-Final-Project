@@ -50,7 +50,7 @@ since Exceptional properties have a price range that is very different than the 
   
 ## 2. Business Objectives
 
-The business goals that want to be achieved through this project are as follow:
+The business goals that want to be achieved through this project are as follows:
 - To maximize profit by making the right decision to give a loan with an optimal amount.
 - To minimize loss and risks of fraud and erroneous valuation[9].
 
