@@ -84,7 +84,7 @@ The values created from the project are the improvement in the underwriting proc
 the right decision in providing loan.
 
 #### Additional Value
-It is well known that there are a lot of people who treat property market as an investment instrument and there are cases in which the investor and appraiser collide to lower the property value in order to help investors to acquire the property. Thus, we hope this project could also protect <b>property owners</> by providing fair and reliable property valuation prediction.
+It is well known that there are a lot of people who treat property market as an investment instrument and there are cases in which an investor and an appraiser collide to lower the property value in order to help the investor to acquire the property. Thus, we hope this project could also protect <b>property owners</b> by providing fair and reliable property valuation prediction.
 
 ---
 
