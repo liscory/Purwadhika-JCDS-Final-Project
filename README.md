@@ -75,7 +75,7 @@ There are two possible risk that may be caused by wrong prediction from the ML m
 - The second scenario is when the actual value of the property is lower than prediction value, this could cause MPL Bank to suffer loss when the borrower is unable to pay back the loan.
 
 ### Performance Measure
-The performance measures to evaluate the ML model are Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and the Coefficient of Determination (R²). 
+The performance measures to evaluate the ML model are Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), Median Absolute Error and the Coefficient of Determination (R²). 
 
 ## 5. Action
 The business user can utilize the prediction result by comparing it with the appraisal value given by the AMC to determine a reasonable property value.
@@ -86,7 +86,7 @@ The values created from the project are the improvement in the underwriting proc
 the right decision in providing loan.
 
 #### Additional Value
-It is well known that there are a lot of people that treat property market as an investment instrument; and there are cases where the investors and appraiser collide to lower the property value, in order to help investors to acquire the property. Thus, we hoped this project could also protect <b>property owners</b> by providing fair and reliable property valuation prediction.
+It is well known that there are a lot of people who treat property market as an investment instrument and there are cases in which the investor and appraiser collide to lower the property value in order to help investors to acquire the property. Thus, we hope this project could also protect <b>property owners</> by providing fair and reliable property valuation prediction.
 
 ---
 
@@ -124,7 +124,7 @@ Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project
   
 # V. Evaluation
 
-We used CatBoost Regressor as our final model as it gives the best r-squared (R²) results in both training and validation set and the lowest MAE compared with other models.
+We use CatBoost Regressor as our final model as it gives the best r-squared (R²) results in both training and validation set and the lowest MAE compared with other models.
 In this project, we are expected by the business user to make an initial model with Mean Absolute Error (MAE) metrics of ±12% to mean property price and Median Absolute Error of ±12% to median property price.
 
 
