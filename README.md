@@ -22,10 +22,10 @@ Thus, the project owner wants to address these issues.
 
 ##### Notes :
 For details please refer to 
-<a href="https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Lead%20-%20Residential.ipynb">Lead - Residential.jpynb</a>, 
-<a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Appendix%201.ipynb'>Appendix 1.jpynb</a> 
+<a href="https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Lead%20-%20Residential.ipynb">Lead - Residential.ipynb</a>, 
+<a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Appendix%201.ipynb'>Appendix 1.ipynb</a> 
 and 
-<a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Appendix%202.ipynb'>Appendix 2.jpynb</a>.
+<a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Appendix%202.ipynb'>Appendix 2.ipynb</a>.
 
 ---
 
@@ -92,7 +92,7 @@ It is well known that there are a lot of people who treat property market as an 
 
 Started with importing the dataset which is DC_properties.csv. Then, we continued to handle missing datapoints, give restriction to the data that will be used for EDA and further processes, remove outliers, and choose relevant features to be used in the modelling phase. This process results in a new clean dataset that would be used for this project.
 
-Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/EDA%20-%20Data%20Preparation.ipynb'>EDA - Data Preparation.jpynb</a>
+Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/EDA%20-%20Data%20Preparation.ipynb'>EDA - Data Preparation.ipynb</a>
 
 ---
   
@@ -100,7 +100,7 @@ Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project
 
 At feature engineering, we focused on relevant features by checking and removing outliers further, encoding categorical columns, merging some categorical value which only have a very little sample, checking the correlation in each features, conducting ANOVA F Test, etc.
 
-Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/EDA%20-%20Data%20Preparation.ipynb'>EDA - Data Preparation.jpynb</a>
+Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/EDA%20-%20Data%20Preparation.ipynb'>EDA - Data Preparation.ipynb</a>
 
 ---
   
@@ -116,7 +116,7 @@ For the modeling process we tried these base and ensemble models to obtain a mod
   - Voting Regressor
   - CatBoost Regressor
   
-Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Modeling_Final%20with%20CatBoost%20(without%20Onehot).ipynb'>Modeling_Final with CatBoost (without Onehot).jpynb</a>
+Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Modeling_Final%20with%20CatBoost%20(without%20Onehot).ipynb'>Modeling_Final with CatBoost (without Onehot).ipynb</a>
 
 ---
   
@@ -129,7 +129,7 @@ In this project, we are expected by the business user to make an initial model w
 <p float="center ">
 <img src="https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Model/Model.png" width="500" />
   
-Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Modeling_Final%20with%20CatBoost%20(without%20Onehot).ipynb'>Modeling_Final with CatBoost (without Onehot).jpynb</a>
+Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Jupyter%20Notebook/Modeling_Final%20with%20CatBoost%20(without%20Onehot).ipynb'>Modeling_Final with CatBoost (without Onehot).ipynb</a>
 
 ---
   
