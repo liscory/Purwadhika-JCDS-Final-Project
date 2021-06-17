@@ -85,6 +85,9 @@ The business user can utilize the prediction result by comparing it with the app
 The values created from the project are the improvement in the underwriting process and the maximized profit from giving the right appraisal and making 
 the right decision in providing loan.
 
+#### Additional Value
+It is well known that there are a lot of people that treat property market as an investment instrument; and there are cases where the investors and appraiser collide to lower the property value, in order to help investors to acquire the property. Thus, we hoped this project could also protect <b>property owners</b> by providing fair and reliable property valuation prediction.
+
 ---
 
 # II. Data Understanding
@@ -122,6 +125,9 @@ Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project
 # V. Evaluation
 
 We used CatBoost Regressor as our final model as it gives the best r-squared (R²) results in both training and validation set and the lowest MAE compared with other models.
+In this project, we are expected by the business user to make an initial model with Mean Absolute Error (MAE) metrics of ±12% to mean property price and Median Absolute Error of ±12% to median property price.
+
+
 <p float="center ">
 <img src="https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Model/Model.png" width="500" />
   
