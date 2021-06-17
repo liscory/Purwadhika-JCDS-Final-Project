@@ -85,6 +85,9 @@ The business user can utilize the prediction result by comparing it with the app
 The values created from the project are the improvement in the underwriting process and the maximized profit from giving the right appraisal and making 
 the right decision in providing loan.
 
+#### Additional Value
+It is well known that there are a lot of people that treat property market as an investment instrument; and there are cases where the investors and appraiser collide to lower the property value, in order to help investors to acquire the property. Thus, we hoped this project could also protect <b>property owners</b> by providing fair and reliable property valuation prediction.
+
 ---
 
 # II. Data Understanding
