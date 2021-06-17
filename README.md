@@ -125,6 +125,9 @@ Please refer to: <a href='https://github.com/ls-cy/Purwadhika-JCDS-Final-Project
 # V. Evaluation
 
 We used CatBoost Regressor as our final model as it gives the best r-squared (R²) results in both training and validation set and the lowest MAE compared with other models.
+In this project, we are expected by the business user to make an initial model with Mean Absolute Error (MAE) metrics of ±12% to mean property price and Median Absolute Error of ±12% to median property price.
+
+
 <p float="center ">
 <img src="https://github.com/ls-cy/Purwadhika-JCDS-Final-Project/blob/main/Model/Model.png" width="500" />
   
